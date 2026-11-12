@@ -1,0 +1,30 @@
+name: hike_crew
+description: "Find public group hikes, join a crew and plan the day together."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  # app state
+  provider: ^6.1.2
+  # inter font everywhere
+  google_fonts: ^6.3.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  # trail photos used on the cards and headers
+  assets:
+    - assets/images/rock.jpg
+    - assets/images/forest.jpg
