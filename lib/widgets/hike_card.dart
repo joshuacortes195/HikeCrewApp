@@ -7,7 +7,7 @@ import '../providers/hikes_provider.dart';
 import '../theme/app_theme.dart';
 import 'pill_label.dart';
 
-// one hike in the list, tap it to see the details
+// one hike card on the all hikes screen, tap it to open the details screen
 class HikeCard extends StatelessWidget {
   const HikeCard({super.key, required this.hike, required this.onTap});
 
@@ -18,6 +18,7 @@ class HikeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
 
+    // makes the whole card tappable, not just the view hike link
     return InkWell(
       onTap: onTap,
       borderRadius: BorderRadius.circular(16),
@@ -27,7 +28,7 @@ class HikeCard extends StatelessWidget {
           _photo(context),
           const SizedBox(height: 14),
 
-          // orange date and time line
+          // orange date and time line under the photo
           Text(
             hike.shortDateLine,
             style: text.labelLarge?.copyWith(
@@ -38,7 +39,7 @@ class HikeCard extends StatelessWidget {
           ),
           const SizedBox(height: 6),
 
-          // title, where it is and the quick stats
+          // hike title, trail and city, and the miles, gain and service line
           Text(hike.title, style: text.titleLarge),
           const SizedBox(height: 4),
           Text('${hike.trailName} · ${hike.location}', style: text.bodyMedium),
@@ -54,7 +55,7 @@ class HikeCard extends StatelessWidget {
           const SizedBox(height: 12),
           const Divider(),
 
-          // who's going and the view hike link
+          // bottom row of the card, "8 going · Hosted by Joshua" and the view hike link
           Row(
             children: [
               Expanded(
@@ -71,7 +72,7 @@ class HikeCard extends StatelessWidget {
     );
   }
 
-  // the photo with the difficulty pill and bookmark on top
+  // the card's photo with the difficulty pill top left and the bookmark top right
   Widget _photo(BuildContext context) {
     final provider = context.watch<HikesProvider>();
     final saved = provider.isSaved(hike.id);
@@ -93,7 +94,7 @@ class HikeCard extends StatelessWidget {
           child: PillLabel(text: hike.difficulty.label),
         ),
 
-        // bookmark button that saves the hike
+        // white bookmark button in the top right of the photo, fills in when saved
         Positioned(
           top: 10,
           right: 10,

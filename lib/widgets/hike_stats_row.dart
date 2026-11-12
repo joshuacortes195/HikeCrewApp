@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/hike.dart';
 import '../theme/app_theme.dart';
 
-// the three big numbers on the details screen
+// the miles, elevation gain and cell service numbers under the tabs on the details screen
 class HikeStatsRow extends StatelessWidget {
   const HikeStatsRow({super.key, required this.hike});
 
@@ -11,7 +11,7 @@ class HikeStatsRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // intrinsic height lets the dividers stretch to match the stats
+    // intrinsic height lets the thin lines between the stats match their height
     return IntrinsicHeight(
       child: Row(
         children: [
@@ -25,7 +25,7 @@ class HikeStatsRow extends StatelessWidget {
     );
   }
 
-  // one number with its little label underneath
+  // one stat, the big number with its small grey label underneath
   Widget _stat(BuildContext context, String value, String label) {
     final text = Theme.of(context).textTheme;
 

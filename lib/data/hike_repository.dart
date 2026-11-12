@@ -1,14 +1,14 @@
 import '../models/hike.dart';
 
-// where hikes come from, hardcoded for now so a real backend can swap in later
+// where the hikes on the all hikes screen come from, hardcoded for now so a real backend can swap in later
 class HikeRepository {
-  // hands back the sample hikes like a real server would
+  // hands the hikes to the provider when the app opens, like a real server would
   Future<List<Hike>> fetchHikes() async {
     return _sampleHikes;
   }
 }
 
-// the two sample hikes from the design
+// the two hikes you see on the all hikes screen, eagle rock and fern dell
 final _sampleHikes = [
   Hike(
     id: 'eagle-rock',

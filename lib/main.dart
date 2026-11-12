@@ -6,7 +6,7 @@ import 'providers/hikes_provider.dart';
 import 'screens/login_screen.dart';
 import 'theme/app_theme.dart';
 
-// starts the app and loads the hikes right away
+// starts the app, and loads the hikes for the all hikes screen in the background
 void main() {
   runApp(
     ChangeNotifierProvider(
@@ -16,7 +16,7 @@ void main() {
   );
 }
 
-// the app itself, sets the theme and opens on login
+// the app itself, applies our green and cream theme and opens on the login screen
 class HikeCrewApp extends StatelessWidget {
   const HikeCrewApp({super.key});
 

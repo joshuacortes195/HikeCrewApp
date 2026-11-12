@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_theme.dart';
 
-// small lime pill, used for difficulty and the logo
+// small lime pill, the easy, moderate or hard label on hike card photos and the details photo
 class PillLabel extends StatelessWidget {
   const PillLabel({super.key, required this.text});
 
@@ -17,7 +17,7 @@ class PillLabel extends StatelessWidget {
         color: AppColors.lime,
         shape: StadiumBorder(),
       ),
-      // styling for the pill text
+      // dark green text inside the pill
       child: Text(
         text,
         style: GoogleFonts.inter(

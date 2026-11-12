@@ -1,7 +1,7 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:hike_crew/models/hike.dart';
 
-// quick way to make a hike with just the numbers we care about
+// makes a fake hike with just the miles and feet we want to test
 Hike _hike(double miles, int feet) {
   return Hike(
     id: 'test',
@@ -21,7 +21,7 @@ Hike _hike(double miles, int feet) {
 }
 
 void main() {
-  // checks the difficulty rules from the design
+  // checks the difficulty pill shows the right level for different hikes
   test('short and flat hikes are easy', () {
     expect(_hike(2.2, 280).difficulty, Difficulty.easy);
   });
@@ -37,7 +37,7 @@ void main() {
     expect(_hike(2, 1500).difficulty, Difficulty.hard);
   });
 
-  // checks the orange date line on the cards
+  // checks the orange date line on the hike cards reads right
   test('date line reads like the design', () {
     expect(_hike(4.6, 850).shortDateLine, 'SAT, NOV 7 · 7:00 AM');
   });

@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_theme.dart';
 
-// a bold label with a text field under it
+// a label with a text box under it, the email and password fields on the login screen
 class LabeledField extends StatelessWidget {
   const LabeledField({
     super.key,
@@ -17,7 +17,7 @@ class LabeledField extends StatelessWidget {
   final String label;
   final String hint;
   final TextEditingController controller;
-  final bool obscureText; // hides the text for passwords
+  final bool obscureText; // turns the typing into dots for the password box
   final TextInputType? keyboardType;
 
   @override
@@ -25,7 +25,7 @@ class LabeledField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        // styling for the label
+        // the bold green label above the box, like "Email"
         Text(
           label,
           style: GoogleFonts.inter(

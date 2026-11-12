@@ -5,7 +5,7 @@ import '../theme/app_theme.dart';
 import '../widgets/labeled_field.dart';
 import 'home_shell.dart';
 
-// first screen you see, no real auth yet
+// login screen, the first screen you see when the app opens, no real accounts yet
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -17,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
 
-  // cleans up the text fields when the screen goes away
+  // cleans up the email and password boxes when you leave the login screen
   @override
   void dispose() {
     _emailController.dispose();
@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.dispose();
   }
 
-  // takes you into the app and drops login from the back stack
+  // runs when you tap log in or sign up, takes you to the all hikes screen so back won't return here
   void _goToHome() {
     Navigator.of(context)
         .pushReplacement(MaterialPageRoute(builder: (_) => const HomeShell()));
@@ -41,7 +41,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             _header(),
 
-            // headline, form and links
+            // everything under the photo, the headline, the form and the links
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 28, 24, 24),
               child: Column(
@@ -68,7 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 24),
 
-                  // email and password fields
+                  // the email and password boxes
                   LabeledField(
                     label: 'Email',
                     hint: 'you@example.com',
@@ -83,7 +83,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     obscureText: true,
                   ),
 
-                  // forgot password does nothing yet
+                  // forgot password link under the password box, does nothing yet
                   Align(
                     alignment: Alignment.centerRight,
                     child: TextButton(
@@ -93,13 +93,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const SizedBox(height: 8),
 
+                  // big green log in button, takes you to the all hikes screen
                   FilledButton(
                     onPressed: _goToHome,
                     child: const Text('Log in'),
                   ),
                   const SizedBox(height: 12),
 
-                  // sign up link, also goes straight in for now
+                  // "New to the crew? Sign up" under the log in button, also goes straight in for now
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -116,6 +117,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ],
                   ),
                   const SizedBox(height: 16),
+                  // small terms line at the very bottom of the login screen
                   Center(
                     child: Text(
                       'By continuing, you agree to our Terms & Privacy.',
@@ -131,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  // rock photo with the hike crew logo pill on top
+  // rock photo at the top of the login screen with the hike crew logo pill in the corner
   Widget _header() {
     return Stack(
       children: [
@@ -150,7 +152,7 @@ class _LoginScreenState extends State<LoginScreen> {
               color: AppColors.cream,
               shape: StadiumBorder(),
             ),
-            // styling for the logo
+            // the mountain icon and "hike crew" text inside the logo pill
             child: Row(
               children: [
                 const Icon(

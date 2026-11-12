@@ -6,14 +6,14 @@ import '../models/hike.dart';
 import '../providers/hikes_provider.dart';
 import '../theme/app_theme.dart';
 
-// the row of chips that filters the list by difficulty
+// the all hikes, easy, moderate and hard chips under the search bar on the all hikes screen
 class DifficultyFilterBar extends StatelessWidget {
   const DifficultyFilterBar({super.key});
 
   @override
   Widget build(BuildContext context) {
     final provider = context.watch<HikesProvider>();
-    // null is the all hikes chip
+    // null is the all hikes chip, then one chip per difficulty
     final options = <Difficulty?>[null, ...Difficulty.values];
 
     return SingleChildScrollView(
@@ -30,7 +30,7 @@ class DifficultyFilterBar extends StatelessWidget {
     );
   }
 
-  // one chip, dark green when it's picked
+  // one chip, turns dark green with white text when it's picked
   Widget _chip(HikesProvider provider, Difficulty? option) {
     final selected = provider.selectedDifficulty == option;
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../widgets/screen_header.dart';
 
-// placeholder for the hikes you joined or host
+// my hikes tab, the middle tab in the bottom nav, a placeholder for now
 class MyHikesScreen extends StatelessWidget {
   const MyHikesScreen({super.key});
 
@@ -17,7 +17,7 @@ class MyHikesScreen extends StatelessWidget {
             title: 'My hikes',
           ),
           const SizedBox(height: 40),
-          // filler text until this tab gets built
+          // filler text under the my hikes title until this tab gets built
           Text(
             'Hikes you join or host will show up here.',
             style: Theme.of(context).textTheme.bodyMedium,

@@ -1,6 +1,6 @@
 import 'date_text.dart';
 
-// how much signal you get on the trail
+// how much signal you get on the trail, shows as "Limited service" on cards and "Limited" in the details stats
 enum CellService {
   none('None'),
   limited('Limited'),
@@ -10,7 +10,7 @@ enum CellService {
   final String label;
 }
 
-// how hard a hike is, never stored, always worked out
+// how hard a hike is, this is the green pill on the photo and what the filter chips check
 enum Difficulty {
   easy('Easy'),
   moderate('Moderate'),
@@ -20,7 +20,7 @@ enum Difficulty {
   final String label;
 }
 
-// one group hike
+// one group hike, everything a hike card and the details screen need to show
 class Hike {
   const Hike({
     required this.id,
@@ -52,25 +52,25 @@ class Hike {
   final String planText;
   final String photoPath;
 
-  // figures out difficulty from distance and climb
+  // figures out the easy, moderate or hard pill from miles and elevation gain
   Difficulty get difficulty {
     if (miles >= 8 || elevationGainFeet >= 1500) return Difficulty.hard;
     if (miles < 3 && elevationGainFeet < 400) return Difficulty.easy;
     return Difficulty.moderate;
   }
 
-  // host's first name for the cards
+  // host's first name for "Hosted by Joshua" at the bottom of each card
   String get hostFirstName => hostName.split(' ').first;
 
-  // shows 4.6 as 4.6 and 5.0 as 5
+  // miles for the cards and details stats, shows 4.6 as 4.6 and 5.0 as 5
   String get milesText =>
       miles == miles.roundToDouble() ? miles.toInt().toString() : '$miles';
 
-  // the orange line on cards, like SAT, NOV 7 · 7:00 AM
+  // the orange date line on each hike card, like SAT, NOV 7 · 7:00 AM
   String get shortDateLine =>
       '${shortDate(dateTime)} · ${timeText(dateTime)}'.toUpperCase();
 
-  // the stats line on cards
+  // the "4.6 mi / 850 ft gain / Limited service" line on each hike card
   String get statsLine =>
       '$milesText mi  /  $elevationGainFeet ft gain  /  ${cellService.label} service';
 }

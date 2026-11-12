@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// the little grey line plus big title at the top of each tab
+// the header at the top of the all hikes, my hikes and profile tabs
 class ScreenHeader extends StatelessWidget {
   const ScreenHeader({
     super.key,
@@ -11,7 +11,7 @@ class ScreenHeader extends StatelessWidget {
 
   final String eyebrow;
   final String title;
-  final Widget? trailing; // optional button on the right
+  final Widget? trailing; // optional button on the right, the plus on all hikes
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ScreenHeader extends StatelessWidget {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: [
-        // grey intro line and the big heading
+        // small grey line like "Find your next crew." with the big title under it
         Expanded(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -31,7 +31,7 @@ class ScreenHeader extends StatelessWidget {
             ],
           ),
         ),
-        // the ? only adds the right side button if one was passed in
+        // the ? only adds the right side button if a tab passed one in
         ?trailing,
       ],
     );

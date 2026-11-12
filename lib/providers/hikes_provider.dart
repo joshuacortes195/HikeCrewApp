@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 import '../data/hike_repository.dart';
 import '../models/hike.dart';
 
-// holds the hike list, the filter, the search and saved hikes for the whole app
+// the app's shared memory, the hike list, which chip is picked, what's typed in search and which hikes are bookmarked
 class HikesProvider extends ChangeNotifier {
   HikesProvider(this._repository);
 
@@ -11,14 +11,14 @@ class HikesProvider extends ChangeNotifier {
 
   List<Hike> _hikes = [];
   bool _isLoading = false;
-  Difficulty? _selectedDifficulty; // null means all hikes
+  Difficulty? _selectedDifficulty; // null means the all hikes chip is picked
   String _searchText = '';
   final Set<String> _savedIds = {};
 
   bool get isLoading => _isLoading;
   Difficulty? get selectedDifficulty => _selectedDifficulty;
 
-  // loads hikes from the repository when the app starts
+  // loads the hikes when the app opens, the all hikes screen shows a spinner until this finishes
   Future<void> loadHikes() async {
     _isLoading = true;
     notifyListeners();
@@ -27,7 +27,7 @@ class HikesProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  // the hikes that match the chip and the search bar
+  // the cards the all hikes screen actually shows, after the chip and search bar filter them
   List<Hike> get visibleHikes {
     final search = _searchText.toLowerCase();
     return _hikes.where((hike) {
@@ -43,13 +43,13 @@ class HikesProvider extends ChangeNotifier {
     }).toList();
   }
 
-  // filters the list by difficulty
+  // runs when you tap a chip on the all hikes screen, filters the list by difficulty
   void selectDifficulty(Difficulty? difficulty) {
     _selectedDifficulty = difficulty;
     notifyListeners();
   }
 
-  // updates the list as you type in the search bar
+  // runs as you type in the all hikes search bar, narrows the list
   void search(String text) {
     _searchText = text.trim();
     notifyListeners();
@@ -57,7 +57,7 @@ class HikesProvider extends ChangeNotifier {
 
   bool isSaved(String hikeId) => _savedIds.contains(hikeId);
 
-  // adds or removes the hike from the saved list
+  // runs when you tap the bookmark on a hike card, saves or unsaves that hike
   void toggleSaved(String hikeId) {
     if (_savedIds.contains(hikeId)) {
       _savedIds.remove(hikeId);

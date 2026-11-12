@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import '../theme/app_theme.dart';
 
-// the details and gear tabs on the hike screen
+// the details and gear tabs under the title on the hike details screen
 class DetailsTabBar extends StatelessWidget {
   const DetailsTabBar({
     super.key,
@@ -21,7 +21,7 @@ class DetailsTabBar extends StatelessWidget {
     );
   }
 
-  // one tab, with a thick green line under it when picked
+  // one tab, gets a thick green line under it when it's picked
   Widget _tab(BuildContext context, String label, int index) {
     final selected = index == selectedIndex;
 
@@ -39,7 +39,7 @@ class DetailsTabBar extends StatelessWidget {
               ),
             ),
           ),
-          // styling for the tab text
+          // tab text, bold and green when picked, grey when not
           child: Text(
             label,
             style: GoogleFonts.inter(

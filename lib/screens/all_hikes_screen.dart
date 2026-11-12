@@ -8,11 +8,11 @@ import '../widgets/hike_card.dart';
 import '../widgets/screen_header.dart';
 import 'hike_details_screen.dart';
 
-// the main list of public hikes
+// all hikes screen, the first tab, the list of public hikes
 class AllHikesScreen extends StatelessWidget {
   const AllHikesScreen({super.key});
 
-  // opens the details screen for a hike
+  // runs when you tap a hike card or view hike, opens the hike details screen
   void _openHike(BuildContext context, Hike hike) {
     Navigator.of(context)
         .push(MaterialPageRoute(builder: (_) => HikeDetailsScreen(hike: hike)));
@@ -28,7 +28,7 @@ class AllHikesScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
         children: [
-          // title with the round plus button, plus does nothing yet
+          // "Find your next crew." and the big "All hikes" title, with the round plus button on the right that does nothing yet
           ScreenHeader(
             eyebrow: 'Find your next crew.',
             title: 'All hikes',
@@ -42,7 +42,7 @@ class AllHikesScreen extends StatelessWidget {
           ),
           const SizedBox(height: 20),
 
-          // search bar that filters as you type
+          // search bar under the title, filters the cards as you type
           TextField(
             onChanged: provider.search,
             decoration: InputDecoration(
@@ -53,16 +53,17 @@ class AllHikesScreen extends StatelessWidget {
             ),
           ),
           const SizedBox(height: 16),
+          // the difficulty chips under the search bar
           const DifficultyFilterBar(),
           const SizedBox(height: 20),
 
-          // section heading
+          // "A good weekend starts here" heading above the cards
           Text('A good weekend starts here', style: text.titleLarge),
           const SizedBox(height: 4),
           Text('Public hikes · Everyone is welcome', style: text.bodyMedium),
           const SizedBox(height: 16),
 
-          // spinner, empty message or the cards
+          // the bottom part, a spinner while loading, an empty message if a chip has no hikes, or the hike cards
           if (provider.isLoading)
             const Center(child: CircularProgressIndicator())
           else if (hikes.isEmpty)
@@ -88,7 +89,7 @@ class AllHikesScreen extends StatelessWidget {
     );
   }
 
-  // round border for the search bar
+  // makes the search bar a rounded pill shape
   OutlineInputBorder _pillBorder(Color color) {
     return OutlineInputBorder(
       borderRadius: BorderRadius.circular(999),

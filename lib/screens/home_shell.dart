@@ -4,7 +4,7 @@ import 'all_hikes_screen.dart';
 import 'my_hikes_screen.dart';
 import 'profile_screen.dart';
 
-// main app frame with the bottom nav, keeps each tab alive
+// the frame you're in after logging in, holds the three tabs and the bottom nav
 class HomeShell extends StatefulWidget {
   const HomeShell({super.key});
 
@@ -18,13 +18,13 @@ class _HomeShellState extends State<HomeShell> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // indexed stack keeps scroll spots when you switch tabs
+      // shows the tab you picked, and keeps the others alive so your scroll spot and search stay put
       body: IndexedStack(
         index: _currentIndex,
         children: const [AllHikesScreen(), MyHikesScreen(), ProfileScreen()],
       ),
 
-      // bottom nav for the three tabs
+      // bottom nav with all hikes, my hikes and profile
       bottomNavigationBar: NavigationBar(
         selectedIndex: _currentIndex,
         onDestinationSelected: (index) => setState(() => _currentIndex = index),

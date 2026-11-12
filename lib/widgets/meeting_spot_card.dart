@@ -4,7 +4,7 @@ import '../models/date_text.dart';
 import '../models/hike.dart';
 import '../theme/app_theme.dart';
 
-// white card that says when and where the crew meets
+// white card under the stats on the details screen, says when and where the crew meets
 class MeetingSpotCard extends StatelessWidget {
   const MeetingSpotCard({super.key, required this.hike});
 
@@ -17,7 +17,7 @@ class MeetingSpotCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.all(20),
-      // styling for the card, white with a soft border
+      // white box with rounded corners and a soft border
       decoration: BoxDecoration(
         color: AppColors.white,
         borderRadius: BorderRadius.circular(16),
@@ -26,7 +26,7 @@ class MeetingSpotCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          // full date in orange
+          // orange date at the top of the card, like SATURDAY, NOVEMBER 7
           Text(
             longDate(hike.dateTime).toUpperCase(),
             style: text.labelLarge?.copyWith(
@@ -42,7 +42,7 @@ class MeetingSpotCard extends StatelessWidget {
           ),
           const SizedBox(height: 12),
 
-          // the actual meeting spot
+          // the meeting spot, like Trippet Ranch parking lot, with the city under it
           Text(hike.meetingSpot, style: text.bodyLarge),
           const SizedBox(height: 2),
           Text(hike.location, style: text.bodySmall),

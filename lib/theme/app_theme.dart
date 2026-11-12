@@ -1,26 +1,33 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-// all the colors the app uses, in one spot
+// every color in the app, dark green text and buttons, lime pills, cream background, orange dates and log out
 class AppColors {
+  // titles, text and the big buttons
   static const darkGreen = Color(0xFF183C31);
+  // difficulty pills and the bottom nav bubble
   static const lime = Color(0xFFDDECB5);
+  // background behind every screen
   static const cream = Color(0xFFF7F5EF);
+  // date lines and the log out link
   static const orange = Color(0xFFB8481B);
+  // smaller text like locations and "8 going"
   static const grey = Color(0xFF66665E);
+  // thin lines and box borders
   static const border = Color(0xFFDDDCD2);
+  // text boxes, meeting spot card and bookmark button
   static const white = Colors.white;
 }
 
-// the whole look of the app lives here
+// the look of every screen lives here, fonts, buttons, fields, chips and the bottom nav
 class AppTheme {
-  // smallest size anything tappable can be
+  // smallest size any button can be so it's easy to tap on a phone
   static const double minTouch = 44;
 
   static ThemeData light() {
     final base = ThemeData(useMaterial3: true);
 
-    // sizes and weights first, so inter loads the right bold files
+    // text sizes for every screen, set first so inter loads the real bold files for the big headings
     final sized = base.textTheme.copyWith(
       headlineLarge: const TextStyle(
         fontSize: 38,
@@ -46,7 +53,7 @@ class AppTheme {
       labelLarge: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
     );
 
-    // inter everywhere, dark green by default
+    // turns all the text in the app into inter, dark green by default
     final text = GoogleFonts.interTextTheme(
       sized,
     ).apply(bodyColor: AppColors.darkGreen, displayColor: AppColors.darkGreen);
@@ -54,7 +61,7 @@ class AppTheme {
     return base.copyWith(
       scaffoldBackgroundColor: AppColors.cream,
 
-      // main colors material widgets pull from
+      // colors flutter's built in widgets use, like the spinner and the plus button
       colorScheme: const ColorScheme.light(
         primary: AppColors.darkGreen,
         onPrimary: AppColors.white,
@@ -65,13 +72,13 @@ class AppTheme {
         outline: AppColors.border,
       ),
 
-      // styling for text, secondary text goes grey
+      // makes the smaller text grey, like "Find your next crew." and "8 going"
       textTheme: text.copyWith(
         bodyMedium: text.bodyMedium?.copyWith(color: AppColors.grey),
         bodySmall: text.bodySmall?.copyWith(color: AppColors.grey),
       ),
 
-      // styling for the top bar on pushed screens
+      // styling for the top bar with the back arrow on the hike details screen
       appBarTheme: AppBarTheme(
         backgroundColor: AppColors.cream,
         foregroundColor: AppColors.darkGreen,
@@ -85,7 +92,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the big pill buttons like log in and join hike
+      // styling for the big green pill buttons, log in on the login screen and join hike on the details screen
       filledButtonTheme: FilledButtonThemeData(
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.darkGreen,
@@ -99,7 +106,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for small text links like forgot password
+      // styling for text links like forgot password, sign up and view hike
       textButtonTheme: TextButtonThemeData(
         style: TextButton.styleFrom(
           foregroundColor: AppColors.darkGreen,
@@ -111,14 +118,14 @@ class AppTheme {
         ),
       ),
 
-      // keeps icon buttons big enough to tap
+      // keeps icon buttons like the bookmark and back arrow big enough to tap
       iconButtonTheme: IconButtonThemeData(
         style: IconButton.styleFrom(
           minimumSize: const Size(minTouch, minTouch),
         ),
       ),
 
-      // styling for text fields, white with a soft border
+      // styling for the white text boxes, email and password on login and the search bar
       inputDecorationTheme: InputDecorationTheme(
         filled: true,
         fillColor: AppColors.white,
@@ -137,7 +144,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the pill shaped filter chips
+      // styling for the all hikes, easy, moderate and hard chips on the all hikes screen
       chipTheme: ChipThemeData(
         backgroundColor: AppColors.cream,
         selectedColor: AppColors.darkGreen,
@@ -146,13 +153,14 @@ class AppTheme {
         padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 8),
       ),
 
+      // thin lines, like the one above "8 going" on each card and between the details stats
       dividerTheme: const DividerThemeData(
         color: AppColors.border,
         thickness: 1,
         space: 1,
       ),
 
-      // styling for the bottom nav
+      // styling for the bottom nav, lime bubble behind the tab you're on
       navigationBarTheme: NavigationBarThemeData(
         backgroundColor: AppColors.cream,
         indicatorColor: AppColors.lime,
