@@ -14,7 +14,7 @@ Hike _hike(double miles, int feet) {
     elevationGainFeet: feet,
     cellService: CellService.good,
     hostName: 'Joshua Cortes',
-    joinedNames: const ['Joshua Cortes'],
+    joinedNames: const ['Joshua Cortes', 'Maya'],
     gear: const [],
     planText: '',
     photoPath: 'assets/images/rock.jpg',
@@ -36,6 +36,17 @@ void main() {
   test('long or steep hikes are hard', () {
     expect(_hike(8, 200).difficulty, Difficulty.hard);
     expect(_hike(2, 1500).difficulty, Difficulty.hard);
+  });
+
+  // the create hike pill uses the same rule as the cards
+  test('create hike pill matches the card rule', () {
+    expect(difficultyFor(2.2, 280), _hike(2.2, 280).difficulty);
+    expect(difficultyFor(9, 300), Difficulty.hard);
+  });
+
+  // going count comes from the crew list, not a stored number
+  test('going count is the size of the crew list', () {
+    expect(_hike(4.6, 850).goingCount, 2);
   });
 
   // checks the orange date line on the hike cards reads right
