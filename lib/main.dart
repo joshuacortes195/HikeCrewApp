@@ -3,14 +3,20 @@ import 'package:provider/provider.dart';
 
 import 'data/hike_repository.dart';
 import 'providers/hikes_provider.dart';
+import 'providers/user_provider.dart';
 import 'screens/login_screen.dart';
 import 'theme/app_theme.dart';
 
-// starts the app, and loads the hikes for the all hikes screen in the background
+// starts the app, loads the hikes in the background and sets up your profile
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (_) => HikesProvider(HikeRepository())..loadHikes(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (_) => HikesProvider(HikeRepository())..loadHikes(),
+        ),
+        ChangeNotifierProvider(create: (_) => UserProvider()),
+      ],
       child: const HikeCrewApp(),
     ),
   );
