@@ -71,9 +71,6 @@ class Hike {
   // true if the hike hasn't happened yet, splits my hikes into upcoming and past
   bool get isUpcoming => dateTime.isAfter(DateTime.now());
 
-  // host's first name for "Hosted by Joshua" at the bottom of each card
-  String get hostFirstName => hostName.split(' ').first;
-
   bool isJoinedBy(String userName) => joinedNames.contains(userName);
   bool isHostedBy(String userName) => hostName == userName;
 

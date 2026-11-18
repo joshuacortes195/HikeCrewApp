@@ -26,7 +26,7 @@ class _HomeShellState extends State<HomeShell> {
         index: _currentIndex,
         children: [
           AllHikesScreen(onHikePublished: _showMyHikes),
-          const MyHikesScreen(),
+          MyHikesScreen(onHikePublished: _showMyHikes),
           const ProfileScreen(),
         ],
       ),

@@ -10,6 +10,12 @@ import '../widgets/join_hike_button.dart';
 import '../widgets/meeting_spot_card.dart';
 import '../widgets/pill_label.dart';
 
+// runs when you tap a hike card, view hike or manage hike, opens the hike details screen
+void openHikeDetails(BuildContext context, Hike hike) {
+  Navigator.of(context)
+      .push(MaterialPageRoute(builder: (_) => HikeDetailsScreen(hike: hike)));
+}
+
 // hike details screen, opens when you tap a hike card
 class HikeDetailsScreen extends StatefulWidget {
   const HikeDetailsScreen({super.key, required this.hike});

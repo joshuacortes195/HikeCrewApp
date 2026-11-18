@@ -4,19 +4,30 @@ import 'package:provider/provider.dart';
 
 import '../models/hike.dart';
 import '../providers/hikes_provider.dart';
+import '../providers/user_provider.dart';
 import '../theme/app_theme.dart';
 import 'pill_label.dart';
 
-// one hike card on the all hikes screen, tap it to open the details screen
+// one hike card on all hikes and my hikes, tap it to open the details screen
 class HikeCard extends StatelessWidget {
-  const HikeCard({super.key, required this.hike, required this.onTap});
+  const HikeCard({
+    super.key,
+    required this.hike,
+    required this.onTap,
+    this.showJoined = false,
+    this.note,
+  });
 
   final Hike hike;
   final VoidCallback onTap;
+  final bool showJoined; // adds the joined pill on the photo, used on my hikes
+  final String? note; // extra line like "Your gear: First-aid kit · Packed"
 
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
+    // your edited name if you're the host, otherwise the host's first name
+    final hostName = context.watch<UserProvider>().nameFor(hike.hostName);
 
     // makes the whole card tappable, not just the view hike link
     return InkWell(
@@ -52,6 +63,11 @@ class HikeCard extends StatelessWidget {
               color: AppColors.darkGreen,
             ),
           ),
+          // your gear line, only on my hikes when you've claimed something
+          if (note != null) ...[
+            const SizedBox(height: 8),
+            Text(note!, style: text.bodyMedium),
+          ],
           const SizedBox(height: 12),
           const Divider(),
 
@@ -60,7 +76,7 @@ class HikeCard extends StatelessWidget {
             children: [
               Expanded(
                 child: Text(
-                  '${hike.goingCount} going · Hosted by ${hike.hostFirstName}',
+                  '${hike.goingCount} going · Hosted by ${hostName.split(' ').first}',
                   style: text.bodySmall,
                 ),
               ),
@@ -88,10 +104,23 @@ class HikeCard extends StatelessWidget {
             fit: BoxFit.cover,
           ),
         ),
+        // difficulty pill top left, with the joined pill next to it on my hikes
         Positioned(
           top: 14,
           left: 14,
-          child: PillLabel(text: hike.difficulty.label),
+          child: Row(
+            children: [
+              PillLabel(text: hike.difficulty.label),
+              if (showJoined) ...[
+                const SizedBox(width: 8),
+                const PillLabel(
+                  text: 'Joined',
+                  color: AppColors.darkGreen,
+                  textColor: AppColors.white,
+                ),
+              ],
+            ],
+          ),
         ),
 
         // white bookmark button in the top right of the photo, fills in when saved

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../models/hike.dart';
 import '../providers/hikes_provider.dart';
 import '../theme/app_theme.dart';
 import '../widgets/create_hike_button.dart';
@@ -16,12 +15,6 @@ class AllHikesScreen extends StatelessWidget {
 
   final VoidCallback
   onHikePublished; // jumps to my hikes after you publish a hike
-
-  // runs when you tap a hike card or view hike, opens the hike details screen
-  void _openHike(BuildContext context, Hike hike) {
-    Navigator.of(context)
-        .push(MaterialPageRoute(builder: (_) => HikeDetailsScreen(hike: hike)));
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +73,7 @@ class AllHikesScreen extends StatelessWidget {
                 padding: const EdgeInsets.only(bottom: 24),
                 child: HikeCard(
                   hike: hike,
-                  onTap: () => _openHike(context, hike),
+                  onTap: () => openHikeDetails(context, hike),
                 ),
               ),
         ],
