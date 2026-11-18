@@ -109,11 +109,12 @@ class ProfileScreen extends StatelessWidget {
 
   // white card with the three settings rows, they don't do anything yet
   Widget _settings() {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors.white,
+    // material instead of a plain box so the rows still show the tap ripple
+    return Material(
+      color: AppColors.white,
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(16),
-        border: Border.all(color: AppColors.border),
+        side: const BorderSide(color: AppColors.border),
       ),
       clipBehavior: Clip.antiAlias,
       child: Column(
