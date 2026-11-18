@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../models/hike.dart';
 import '../providers/hikes_provider.dart';
+import '../theme/app_theme.dart';
+import '../widgets/create_hike_button.dart';
 import '../widgets/difficulty_filter_bar.dart';
 import '../widgets/hike_card.dart';
 import '../widgets/screen_header.dart';
@@ -10,7 +12,10 @@ import 'hike_details_screen.dart';
 
 // all hikes screen, the first tab, the list of public hikes
 class AllHikesScreen extends StatelessWidget {
-  const AllHikesScreen({super.key});
+  const AllHikesScreen({super.key, required this.onHikePublished});
+
+  final VoidCallback
+  onHikePublished; // jumps to my hikes after you publish a hike
 
   // runs when you tap a hike card or view hike, opens the hike details screen
   void _openHike(BuildContext context, Hike hike) {
@@ -28,17 +33,11 @@ class AllHikesScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
         children: [
-          // "Find your next crew." and the big "All hikes" title, with the round plus button on the right that does nothing yet
+          // "Find your next crew." and the big "All hikes" title, with the round plus button that opens create hike
           ScreenHeader(
             eyebrow: 'Find your next crew.',
             title: 'All hikes',
-            trailing: IconButton.filled(
-              onPressed: () {},
-              iconSize: 30,
-              style: IconButton.styleFrom(minimumSize: const Size(60, 60)),
-              tooltip: 'Create hike',
-              icon: const Icon(Icons.add),
-            ),
+            trailing: CreateHikeButton(onPublished: onHikePublished),
           ),
           const SizedBox(height: 20),
 
@@ -48,7 +47,7 @@ class AllHikesScreen extends StatelessWidget {
             decoration: InputDecoration(
               hintText: 'Search hikes or meeting spots',
               prefixIcon: const Icon(Icons.search),
-              enabledBorder: _pillBorder(const Color(0xFFDDDCD2)),
+              enabledBorder: _pillBorder(AppColors.border),
               focusedBorder: _pillBorder(Theme.of(context).colorScheme.primary),
             ),
           ),

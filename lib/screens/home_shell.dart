@@ -15,13 +15,20 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _currentIndex = 0;
 
+  // runs after you publish a hike, flips the bottom nav over to my hikes
+  void _showMyHikes() => setState(() => _currentIndex = 1);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       // shows the tab you picked, and keeps the others alive so your scroll spot and search stay put
       body: IndexedStack(
         index: _currentIndex,
-        children: const [AllHikesScreen(), MyHikesScreen(), ProfileScreen()],
+        children: [
+          AllHikesScreen(onHikePublished: _showMyHikes),
+          const MyHikesScreen(),
+          const ProfileScreen(),
+        ],
       ),
 
       // bottom nav with all hikes, my hikes and profile
