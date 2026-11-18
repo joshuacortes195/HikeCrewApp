@@ -14,7 +14,8 @@ Hike _hike(double miles, int feet) {
     elevationGainFeet: feet,
     cellService: CellService.good,
     hostName: 'Joshua Cortes',
-    goingCount: 1,
+    joinedNames: const ['Joshua Cortes'],
+    gear: const [],
     planText: '',
     photoPath: 'assets/images/rock.jpg',
   );
