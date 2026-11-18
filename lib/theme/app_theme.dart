@@ -70,6 +70,7 @@ class AppTheme {
         surface: AppColors.white,
         onSurface: AppColors.darkGreen,
         outline: AppColors.border,
+        error: AppColors.orange,
       ),
 
       // makes the smaller text grey, like "Find your next crew." and "8 going"
@@ -97,12 +98,99 @@ class AppTheme {
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.darkGreen,
           foregroundColor: AppColors.white,
+          // the you are hosting button, lime and not tappable
+          disabledBackgroundColor: AppColors.lime,
+          disabledForegroundColor: AppColors.darkGreen,
           minimumSize: const Size.fromHeight(56),
           shape: const StadiumBorder(),
           textStyle: GoogleFonts.inter(
             fontSize: 17,
             fontWeight: FontWeight.w600,
           ),
+        ),
+      ),
+
+      // styling for the outlined pill buttons, leave hike, edit profile and claim
+      outlinedButtonTheme: OutlinedButtonThemeData(
+        style: OutlinedButton.styleFrom(
+          foregroundColor: AppColors.darkGreen,
+          backgroundColor: AppColors.white,
+          minimumSize: const Size(minTouch, minTouch),
+          side: const BorderSide(color: AppColors.darkGreen),
+          shape: const StadiumBorder(),
+          textStyle: GoogleFonts.inter(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+
+      // styling for the details and gear tabs on the hike details screen
+      tabBarTheme: TabBarThemeData(
+        labelColor: AppColors.darkGreen,
+        unselectedLabelColor: AppColors.grey,
+        indicatorColor: AppColors.darkGreen,
+        indicatorSize: TabBarIndicatorSize.tab,
+        dividerColor: AppColors.border,
+        labelStyle: GoogleFonts.inter(
+          fontSize: 17,
+          fontWeight: FontWeight.w700,
+        ),
+        unselectedLabelStyle: GoogleFonts.inter(
+          fontSize: 17,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+
+      // styling for the upcoming and past toggle and the cell service picker
+      segmentedButtonTheme: SegmentedButtonThemeData(
+        style: SegmentedButton.styleFrom(
+          backgroundColor: AppColors.white,
+          foregroundColor: AppColors.darkGreen,
+          selectedBackgroundColor: AppColors.darkGreen,
+          selectedForegroundColor: AppColors.white,
+          side: const BorderSide(color: AppColors.border),
+          minimumSize: const Size(minTouch, 48),
+          textStyle: GoogleFonts.inter(
+            fontSize: 15,
+            fontWeight: FontWeight.w600,
+          ),
+        ),
+      ),
+
+      // styling for the gear checkboxes, green when packed
+      checkboxTheme: CheckboxThemeData(
+        fillColor: WidgetStateProperty.resolveWith((states) {
+          if (states.contains(WidgetState.selected)) return AppColors.darkGreen;
+          return AppColors.white;
+        }),
+        side: const BorderSide(color: AppColors.grey, width: 1.5),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+      ),
+
+      // the packed progress bar on the crew gear card
+      progressIndicatorTheme: const ProgressIndicatorThemeData(
+        color: AppColors.darkGreen,
+        linearTrackColor: AppColors.white,
+      ),
+
+      // the little message at the bottom after you publish a hike
+      snackBarTheme: SnackBarThemeData(
+        backgroundColor: AppColors.darkGreen,
+        behavior: SnackBarBehavior.floating,
+        contentTextStyle: GoogleFonts.inter(
+          fontSize: 15,
+          color: AppColors.white,
+        ),
+      ),
+
+      // the add item and edit profile popups
+      dialogTheme: DialogThemeData(
+        backgroundColor: AppColors.cream,
+        titleTextStyle: GoogleFonts.inter(
+          fontSize: 21,
+          fontWeight: FontWeight.w700,
+          color: AppColors.darkGreen,
         ),
       ),
 
@@ -142,6 +230,16 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
           borderSide: const BorderSide(color: AppColors.darkGreen, width: 1.5),
         ),
+        // orange outline and message when a create hike or popup box has a problem
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.orange),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(14),
+          borderSide: const BorderSide(color: AppColors.orange, width: 1.5),
+        ),
+        errorStyle: GoogleFonts.inter(color: AppColors.orange, fontSize: 13),
       ),
 
       // styling for the all hikes, easy, moderate and hard chips on the all hikes screen

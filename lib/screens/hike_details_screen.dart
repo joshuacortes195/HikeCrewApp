@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../models/hike.dart';
-import '../widgets/details_tab_bar.dart';
+import '../providers/hikes_provider.dart';
+import '../providers/user_provider.dart';
+import '../widgets/gear_tab.dart';
 import '../widgets/hike_stats_row.dart';
+import '../widgets/join_hike_button.dart';
 import '../widgets/meeting_spot_card.dart';
 import '../widgets/pill_label.dart';
 
@@ -16,13 +20,31 @@ class HikeDetailsScreen extends StatefulWidget {
   State<HikeDetailsScreen> createState() => _HikeDetailsScreenState();
 }
 
-class _HikeDetailsScreenState extends State<HikeDetailsScreen> {
-  // which tab is picked under the title, 0 is details, 1 is gear
-  int _tabIndex = 0;
+class _HikeDetailsScreenState extends State<HikeDetailsScreen>
+    with SingleTickerProviderStateMixin {
+  // runs the details and gear tabs under the title
+  late final TabController _tabs = TabController(length: 2, vsync: this);
+
+  // redraws the screen when you switch tabs so the right content shows
+  @override
+  void initState() {
+    super.initState();
+    _tabs.addListener(() => setState(() {}));
+  }
+
+  // cleans up the tabs when you leave the screen
+  @override
+  void dispose() {
+    _tabs.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    final hike = widget.hike;
+    // grabs the latest version of this hike so joins and gear changes show right away
+    final hike =
+        context.watch<HikesProvider>().hikeById(widget.hike.id) ?? widget.hike;
+    final hostName = context.watch<UserProvider>().nameFor(hike.hostName);
     final text = Theme.of(context).textTheme;
 
     return Scaffold(
@@ -56,31 +78,40 @@ class _HikeDetailsScreenState extends State<HikeDetailsScreen> {
                 Text(hike.title, style: text.headlineLarge),
                 const SizedBox(height: 10),
                 Text(
-                  'Hosted by ${hike.hostName} · ${hike.goingCount} going',
+                  'Hosted by $hostName · ${hike.goingCount} going',
                   style: text.bodyMedium,
                 ),
                 const SizedBox(height: 20),
 
                 // details and gear tabs under the host line
-                DetailsTabBar(
-                  selectedIndex: _tabIndex,
-                  onChanged: (index) => setState(() => _tabIndex = index),
+                TabBar(
+                  controller: _tabs,
+                  tabs: const [
+                    Tab(text: 'Details'),
+                    Tab(text: 'Gear'),
+                  ],
                 ),
                 const SizedBox(height: 24),
 
                 // everything under the tabs, swaps when you tap details or gear
-                if (_tabIndex == 0) _detailsTab(hike) else _gearTab(),
+                if (_tabs.index == 0)
+                  _detailsTab(hike)
+                else
+                  GearTab(
+                    hike: hike,
+                    onBackToDetails: () => _tabs.animateTo(0),
+                  ),
               ],
             ),
           ),
         ],
       ),
 
-      // join hike button stuck to the bottom of the screen, does nothing yet
+      // join, leave or you are hosting button stuck to the bottom of the screen
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),
-          child: FilledButton(onPressed: () {}, child: const Text('Join hike')),
+          child: JoinHikeButton(hike: hike),
         ),
       ),
     );
@@ -102,19 +133,6 @@ class _HikeDetailsScreenState extends State<HikeDetailsScreen> {
         const SizedBox(height: 8),
         Text(hike.planText, style: text.bodyMedium?.copyWith(fontSize: 16)),
       ],
-    );
-  }
-
-  // gear tab, just a coming soon message until the checklist is built
-  Widget _gearTab() {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 24),
-      child: Center(
-        child: Text(
-          'The shared gear checklist is coming soon.',
-          style: Theme.of(context).textTheme.bodyMedium,
-        ),
-      ),
     );
   }
 }
