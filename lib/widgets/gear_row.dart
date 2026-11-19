@@ -5,7 +5,7 @@ import '../data/current_user.dart';
 import '../models/gear_item.dart';
 import '../providers/hikes_provider.dart';
 
-// one row on the shared checklist, the checkbox, the item name, who has it and the claim button
+// week 2: one row on the shared checklist, the checkbox, the item name, who has it and the claim button
 class GearRow extends StatelessWidget {
   const GearRow({super.key, required this.hikeId, required this.item});
 

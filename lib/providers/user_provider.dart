@@ -2,7 +2,7 @@ import 'package:flutter/foundation.dart';
 
 import '../data/current_user.dart';
 
-// your profile, the name and bio on the profile tab that edit profile changes
+// week 2: your profile, the name and bio on the profile tab that edit profile changes
 class UserProvider extends ChangeNotifier {
   String _name = currentUserName;
   String _bio = 'Weekend wanderer. Always up for a sunrise.';

@@ -34,7 +34,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
         children: [
-          // "Your next adventure." and the big title, with the plus button for create hike
+          // week 2: "Your next adventure." and the big title, with the plus button for create hike
           ScreenHeader(
             eyebrow: 'Your next adventure.',
             title: 'My hikes',
@@ -42,7 +42,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
           ),
           const SizedBox(height: 20),
 
-          // upcoming and past hikes toggle, swaps the list below
+          // week 2: upcoming and past hikes toggle, swaps the list below
           SizedBox(
             width: double.infinity,
             child: SegmentedButton<bool>(
@@ -58,7 +58,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
           ),
           const SizedBox(height: 20),
 
-          // lime banner under the toggle
+          // week 2: lime banner under the toggle
           LimeCard(
             child: Text(
               'More outside. Less group texting.',
@@ -67,7 +67,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
           ),
           const SizedBox(height: 28),
 
-          // the lists themselves, past hikes or the going and hosting sections
+          // week 2: the lists themselves, past hikes or the going and hosting sections
           if (_showPast)
             ..._goingList(
               provider.pastHikes,
@@ -90,7 +90,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
     );
   }
 
-  // one big hike card per hike with the joined pill and your gear line, or a friendly message
+  // week 2: one big hike card per hike with the joined pill and your gear line, or a friendly message
   List<Widget> _goingList(List<Hike> hikes, String emptyMessage) {
     if (hikes.isEmpty) return [_empty(emptyMessage)];
     return [
@@ -107,7 +107,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
     ];
   }
 
-  // one small card per hike you host, or a nudge to make one
+  // week 2: one small card per hike you host, or a nudge to make one
   List<Widget> _hostingList(List<Hike> hikes) {
     if (hikes.isEmpty) {
       return [_empty('Not hosting anything yet. Tap + to plan a hike.')];
@@ -124,7 +124,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
     ];
   }
 
-  // "Your gear: First-aid kit · Packed", only if you've claimed something on that hike
+  // week 2: "Your gear: First-aid kit · Packed", only if you've claimed something on that hike
   String? _gearLine(Hike hike) {
     final mine = hike.gearClaimedBy(currentUserName);
     if (mine.isEmpty) return null;
@@ -134,7 +134,7 @@ class _MyHikesScreenState extends State<MyHikesScreen> {
     return 'Your gear: ${items.join(', ')}';
   }
 
-  // grey message when a list is empty
+  // week 2: grey message when a list is empty
   Widget _empty(String message) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20),

@@ -38,13 +38,13 @@ void main() {
     expect(_hike(2, 1500).difficulty, Difficulty.hard);
   });
 
-  // the create hike pill uses the same rule as the cards
+  // week 2: the create hike pill uses the same rule as the cards
   test('create hike pill matches the card rule', () {
     expect(difficultyFor(2.2, 280), _hike(2.2, 280).difficulty);
     expect(difficultyFor(9, 300), Difficulty.hard);
   });
 
-  // going count comes from the crew list, not a stored number
+  // week 2: going count comes from the crew list, not a stored number
   test('going count is the size of the crew list', () {
     expect(_hike(4.6, 850).goingCount, 2);
   });

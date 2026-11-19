@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/hike.dart';
 import '../theme/app_theme.dart';
 
-// the small card under "You are hosting" on my hikes, with a manage hike link
+// week 2: the small card under "You are hosting" on my hikes, with a manage hike link
 class HostingCard extends StatelessWidget {
   const HostingCard({super.key, required this.hike, required this.onTap});
 

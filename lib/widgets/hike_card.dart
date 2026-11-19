@@ -26,7 +26,7 @@ class HikeCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final text = Theme.of(context).textTheme;
-    // your edited name if you're the host, otherwise the host's first name
+    // week 2: your edited name if you're the host, otherwise the host's first name
     final hostName = context.watch<UserProvider>().nameFor(hike.hostName);
 
     // makes the whole card tappable, not just the view hike link
@@ -63,7 +63,7 @@ class HikeCard extends StatelessWidget {
               color: AppColors.darkGreen,
             ),
           ),
-          // your gear line, only on my hikes when you've claimed something
+          // week 2: your gear line, only on my hikes when you've claimed something
           if (note != null) ...[
             const SizedBox(height: 8),
             Text(note!, style: text.bodyMedium),

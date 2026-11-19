@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-// the popup from "+ Add a shared item" on the gear tab, hands back the name you typed
+// week 2: the popup from "+ Add a shared item" on the gear tab, hands back the name you typed
 class AddGearDialog extends StatefulWidget {
   const AddGearDialog({super.key});
 

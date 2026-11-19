@@ -5,7 +5,7 @@ import '../data/current_user.dart';
 import '../models/hike.dart';
 import '../providers/hikes_provider.dart';
 
-// the big button stuck to the bottom of the hike details screen, join, leave or you are hosting
+// week 2: the big button stuck to the bottom of the hike details screen, join, leave or you are hosting
 class JoinHikeButton extends StatelessWidget {
   const JoinHikeButton({super.key, required this.hike});
 

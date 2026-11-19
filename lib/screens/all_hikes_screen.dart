@@ -26,7 +26,7 @@ class AllHikesScreen extends StatelessWidget {
       child: ListView(
         padding: const EdgeInsets.fromLTRB(20, 20, 20, 32),
         children: [
-          // "Find your next crew." and the big "All hikes" title, with the round plus button that opens create hike
+          // week 2: "Find your next crew." and the big "All hikes" title, with the round plus button that opens create hike
           ScreenHeader(
             eyebrow: 'Find your next crew.',
             title: 'All hikes',

@@ -5,7 +5,7 @@ import '../theme/app_theme.dart';
 import 'lime_card.dart';
 import 'pill_label.dart';
 
-// lime overall difficulty card on the create hike form, the pill changes as you type miles and gain
+// week 2: lime overall difficulty card on the create hike form, the pill changes as you type miles and gain
 class DifficultyCard extends StatelessWidget {
   const DifficultyCard({super.key, required this.miles, required this.feet});
 

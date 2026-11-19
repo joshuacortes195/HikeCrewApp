@@ -23,9 +23,9 @@ class LabeledField extends StatelessWidget {
   final TextEditingController controller;
   final bool obscureText; // turns the typing into dots for the password box
   final TextInputType? keyboardType;
-  // the error line under the box on the create hike form
+  // week 2: the error line under the box on the create hike form
   final FormFieldValidator<String>? validator;
-  // the date and time boxes open a picker instead of the keyboard
+  // week 2: the date and time boxes open a picker instead of the keyboard
   final bool readOnly;
   final VoidCallback? onTap;
   final Widget? suffixIcon;

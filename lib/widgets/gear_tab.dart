@@ -8,7 +8,7 @@ import 'add_gear_dialog.dart';
 import 'gear_row.dart';
 import 'lime_card.dart';
 
-// the gear tab on the hike details screen, the packed count and the shared checklist
+// week 2: the gear tab on the hike details screen, the packed count and the shared checklist
 class GearTab extends StatelessWidget {
   const GearTab({super.key, required this.hike, required this.onBackToDetails});
 

@@ -4,7 +4,7 @@ import 'package:hike_crew/data/hike_repository.dart';
 import 'package:hike_crew/models/gear_item.dart';
 import 'package:hike_crew/providers/hikes_provider.dart';
 
-// grabs one gear item off eagle rock so the tests read easier
+// week 2: grabs one gear item off eagle rock so the tests read easier
 GearItem _gear(HikesProvider provider, String gearId) {
   return provider
       .hikeById('eagle-rock')!

@@ -15,7 +15,7 @@ class HomeShell extends StatefulWidget {
 class _HomeShellState extends State<HomeShell> {
   int _currentIndex = 0;
 
-  // runs after you publish a hike, flips the bottom nav over to my hikes
+  // week 2: runs after you publish a hike, flips the bottom nav over to my hikes
   void _showMyHikes() => setState(() => _currentIndex = 1);
 
   @override

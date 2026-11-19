@@ -5,7 +5,7 @@ import '../data/current_user.dart';
 import '../providers/hikes_provider.dart';
 import '../theme/app_theme.dart';
 
-// white card on the profile with hikes joined, hikes hosted and since '26
+// week 2: white card on the profile with hikes joined, hikes hosted and since '26
 class ProfileStatsCard extends StatelessWidget {
   const ProfileStatsCard({super.key});
 

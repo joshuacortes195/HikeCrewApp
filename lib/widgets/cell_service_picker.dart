@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/hike.dart';
 import 'labeled_field.dart';
 
-// the none, limited or good toggle on the create hike form
+// week 2: the none, limited or good toggle on the create hike form
 class CellServicePicker extends StatelessWidget {
   const CellServicePicker({
     super.key,

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../screens/create_hike_screen.dart';
 
-// the round plus button on all hikes and my hikes, opens the create hike form
+// week 2: the round plus button on all hikes and my hikes, opens the create hike form
 class CreateHikeButton extends StatelessWidget {
   const CreateHikeButton({super.key, required this.onPublished});
 

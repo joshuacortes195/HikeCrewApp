@@ -2,9 +2,9 @@
 
 HikeCrew is a Flutter app for finding public group hikes and going with a crew. You can browse hikes, filter them by difficulty, save the ones you like, and open a hike to see the stats, where to meet and the plan for the day. You can also join hikes, host your own and share a gear checklist with everyone going.
 
-This is my final project for my mobile app class, built over 4 weeks.
+This is my final project for my mobile app class, built over 4 weeks. Each week has its own section below so you can see what got added when. In the code, comments that start with `week 2:` mark the parts added in week 2, and anything without a week tag is from week 1.
 
-## What works right now (week 1)
+## Week 1: the core app
 
 - Login screen (no real accounts yet, log in or sign up just takes you in)
 - Home with a bottom nav for All hikes, My hikes and Profile
@@ -15,7 +15,7 @@ This is my final project for my mobile app class, built over 4 weeks.
   - Hard: 8+ miles or 1500+ ft
   - Moderate: everything else
 
-## New in week 2
+## Week 2: joining, gear, hosting and profile
 
 Everything below stays in sync across screens while the app is running. Nothing is saved to disk yet, the state lives in the providers.
 

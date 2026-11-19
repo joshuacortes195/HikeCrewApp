@@ -1,4 +1,4 @@
-// one thing on a hike's shared checklist, like the first-aid kit
+// week 2: one thing on a hike's shared checklist, like the first-aid kit
 class GearItem {
   const GearItem({
     required this.id,

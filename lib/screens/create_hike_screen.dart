@@ -11,7 +11,7 @@ import '../widgets/difficulty_card.dart';
 import '../widgets/distance_fields.dart';
 import '../widgets/labeled_field.dart';
 
-// create hike form, opens from the plus button on all hikes and my hikes
+// week 2: create hike form, opens from the plus button on all hikes and my hikes
 class CreateHikeScreen extends StatefulWidget {
   const CreateHikeScreen({super.key});
 

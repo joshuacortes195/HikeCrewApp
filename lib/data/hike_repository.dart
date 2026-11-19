@@ -10,8 +10,8 @@ class HikeRepository {
   }
 }
 
-// the next time a weekday comes around, so the sample hikes are always upcoming
-// weekday uses dart's numbers, 6 is saturday and 7 is sunday
+// week 2: the next time a weekday comes around, so the sample hikes are always upcoming
+// week 2: weekday uses dart's numbers, 6 is saturday and 7 is sunday
 DateTime _next(int weekday, int hour, int minute, {int extraWeeks = 0}) {
   final now = DateTime.now();
   var daysAway = (weekday - now.weekday) % 7;

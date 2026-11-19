@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'labeled_field.dart';
 
-// the miles and elevation gain boxes side by side on the create hike form
+// week 2: the miles and elevation gain boxes side by side on the create hike form
 class DistanceFields extends StatelessWidget {
   const DistanceFields({
     super.key,

@@ -65,20 +65,20 @@ class Hike {
   // figures out the easy, moderate or hard pill from miles and elevation gain
   Difficulty get difficulty => difficultyFor(miles, elevationGainFeet);
 
-  // "8 going" counts the people on the list, so joining updates it right away
+  // week 2: "8 going" counts the people on the list, so joining updates it right away
   int get goingCount => joinedNames.length;
 
-  // true if the hike hasn't happened yet, splits my hikes into upcoming and past
+  // week 2: true if the hike hasn't happened yet, splits my hikes into upcoming and past
   bool get isUpcoming => dateTime.isAfter(DateTime.now());
 
   bool isJoinedBy(String userName) => joinedNames.contains(userName);
   bool isHostedBy(String userName) => hostName == userName;
 
-  // the gear one person is bringing, used for "Your gear: First-aid kit · Packed"
+  // week 2: the gear one person is bringing, used for "Your gear: First-aid kit · Packed"
   List<GearItem> gearClaimedBy(String userName) =>
       gear.where((item) => item.claimedBy == userName).toList();
 
-  // how many items are checked off, for "3 of 5 packed" on the gear tab
+  // week 2: how many items are checked off, for "3 of 5 packed" on the gear tab
   int get packedCount => gear.where((item) => item.packed).length;
 
   // miles for the cards and details stats, shows 4.6 as 4.6 and 5.0 as 5
@@ -93,7 +93,7 @@ class Hike {
   String get statsLine =>
       '$milesText mi  /  $elevationGainFeet ft gain  /  ${cellService.label} service';
 
-  // makes a copy with a new crew or gear list, used when you join, leave, claim or pack
+  // week 2: makes a copy with a new crew or gear list, used when you join, leave, claim or pack
   Hike copyWith({List<String>? joinedNames, List<GearItem>? gear}) {
     return Hike(
       id: id,

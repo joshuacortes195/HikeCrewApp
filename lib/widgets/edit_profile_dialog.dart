@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../providers/user_provider.dart';
 
-// the popup from edit profile, lets you change your name and bio
+// week 2: the popup from edit profile, lets you change your name and bio
 class EditProfileDialog extends StatefulWidget {
   const EditProfileDialog({super.key});
 

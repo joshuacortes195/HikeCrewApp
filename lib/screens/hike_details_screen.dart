@@ -28,17 +28,17 @@ class HikeDetailsScreen extends StatefulWidget {
 
 class _HikeDetailsScreenState extends State<HikeDetailsScreen>
     with SingleTickerProviderStateMixin {
-  // runs the details and gear tabs under the title
+  // week 2: runs the details and gear tabs under the title
   late final TabController _tabs = TabController(length: 2, vsync: this);
 
-  // redraws the screen when you switch tabs so the right content shows
+  // week 2: redraws the screen when you switch tabs so the right content shows
   @override
   void initState() {
     super.initState();
     _tabs.addListener(() => setState(() {}));
   }
 
-  // cleans up the tabs when you leave the screen
+  // week 2: cleans up the tabs when you leave the screen
   @override
   void dispose() {
     _tabs.dispose();
@@ -47,7 +47,7 @@ class _HikeDetailsScreenState extends State<HikeDetailsScreen>
 
   @override
   Widget build(BuildContext context) {
-    // grabs the latest version of this hike so joins and gear changes show right away
+    // week 2: grabs the latest version of this hike so joins and gear changes show right away
     final hike =
         context.watch<HikesProvider>().hikeById(widget.hike.id) ?? widget.hike;
     final hostName = context.watch<UserProvider>().nameFor(hike.hostName);
@@ -113,7 +113,7 @@ class _HikeDetailsScreenState extends State<HikeDetailsScreen>
         ],
       ),
 
-      // join, leave or you are hosting button stuck to the bottom of the screen
+      // week 2: join, leave or you are hosting button stuck to the bottom of the screen
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 12),

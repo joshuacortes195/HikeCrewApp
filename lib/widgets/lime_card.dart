@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../theme/app_theme.dart';
 
-// the rounded lime box, used for crew gear, overall difficulty, the my hikes banner and leave no one behind
+// week 2: the rounded lime box, used for crew gear, overall difficulty, the my hikes banner and leave no one behind
 class LimeCard extends StatelessWidget {
   const LimeCard({super.key, required this.child});
 

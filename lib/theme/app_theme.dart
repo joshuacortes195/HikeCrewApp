@@ -98,7 +98,7 @@ class AppTheme {
         style: FilledButton.styleFrom(
           backgroundColor: AppColors.darkGreen,
           foregroundColor: AppColors.white,
-          // the you are hosting button, lime and not tappable
+          // week 2: the you are hosting button, lime and not tappable
           disabledBackgroundColor: AppColors.lime,
           disabledForegroundColor: AppColors.darkGreen,
           minimumSize: const Size.fromHeight(56),
@@ -110,7 +110,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the outlined pill buttons, leave hike, edit profile and claim
+      // week 2: styling for the outlined pill buttons, leave hike, edit profile and claim
       outlinedButtonTheme: OutlinedButtonThemeData(
         style: OutlinedButton.styleFrom(
           foregroundColor: AppColors.darkGreen,
@@ -125,7 +125,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the details and gear tabs on the hike details screen
+      // week 2: styling for the details and gear tabs on the hike details screen
       tabBarTheme: TabBarThemeData(
         labelColor: AppColors.darkGreen,
         unselectedLabelColor: AppColors.grey,
@@ -142,7 +142,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the upcoming and past toggle and the cell service picker
+      // week 2: styling for the upcoming and past toggle and the cell service picker
       segmentedButtonTheme: SegmentedButtonThemeData(
         style: SegmentedButton.styleFrom(
           backgroundColor: AppColors.white,
@@ -158,7 +158,7 @@ class AppTheme {
         ),
       ),
 
-      // styling for the gear checkboxes, green when packed
+      // week 2: styling for the gear checkboxes, green when packed
       checkboxTheme: CheckboxThemeData(
         fillColor: WidgetStateProperty.resolveWith((states) {
           if (states.contains(WidgetState.selected)) return AppColors.darkGreen;
@@ -168,13 +168,13 @@ class AppTheme {
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
       ),
 
-      // the packed progress bar on the crew gear card
+      // week 2: the packed progress bar on the crew gear card
       progressIndicatorTheme: const ProgressIndicatorThemeData(
         color: AppColors.darkGreen,
         linearTrackColor: AppColors.white,
       ),
 
-      // the little message at the bottom after you publish a hike
+      // week 2: the little message at the bottom after you publish a hike
       snackBarTheme: SnackBarThemeData(
         backgroundColor: AppColors.darkGreen,
         behavior: SnackBarBehavior.floating,
@@ -184,7 +184,7 @@ class AppTheme {
         ),
       ),
 
-      // the add item and edit profile popups
+      // week 2: the add item and edit profile popups
       dialogTheme: DialogThemeData(
         backgroundColor: AppColors.cream,
         titleTextStyle: GoogleFonts.inter(
@@ -230,7 +230,7 @@ class AppTheme {
           borderRadius: BorderRadius.circular(14),
           borderSide: const BorderSide(color: AppColors.darkGreen, width: 1.5),
         ),
-        // orange outline and message when a create hike or popup box has a problem
+        // week 2: orange outline and message when a create hike or popup box has a problem
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(14),
           borderSide: const BorderSide(color: AppColors.orange),

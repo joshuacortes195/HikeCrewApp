@@ -29,7 +29,7 @@ class ProfileScreen extends StatelessWidget {
     return SafeArea(
       child: ListView(
         children: [
-          // banner photo with the "your place in the crew" pill in the corner
+          // week 2: banner photo with the "your place in the crew" pill in the corner
           Stack(
             children: [
               Image.asset(
@@ -51,13 +51,13 @@ class ProfileScreen extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                // your name and bio, both change when you save edit profile
+                // week 2: your name and bio, both change when you save edit profile
                 Text(user.name, style: text.headlineLarge),
                 const SizedBox(height: 6),
                 Text(user.bio, style: text.bodyMedium),
                 const SizedBox(height: 16),
 
-                // edit profile button, opens the popup
+                // week 2: edit profile button, opens the popup
                 OutlinedButton(
                   onPressed: () => showDialog<void>(
                     context: context,
@@ -69,7 +69,7 @@ class ProfileScreen extends StatelessWidget {
                 const ProfileStatsCard(),
                 const SizedBox(height: 24),
 
-                // lime leave no one behind card
+                // week 2: lime leave no one behind card
                 LimeCard(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -107,9 +107,9 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // white card with the three settings rows, they don't do anything yet
+  // week 2: white card with the three settings rows, they don't do anything yet
   Widget _settings() {
-    // material instead of a plain box so the rows still show the tap ripple
+    // week 2: material instead of a plain box so the rows still show the tap ripple
     return Material(
       color: AppColors.white,
       shape: RoundedRectangleBorder(
@@ -129,7 +129,7 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 
-  // one settings row with its icon, label and arrow
+  // week 2: one settings row with its icon, label and arrow
   Widget _settingRow(IconData icon, String label) {
     return ListTile(
       leading: Icon(icon, color: AppColors.darkGreen),
